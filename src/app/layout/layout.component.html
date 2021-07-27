@@ -1,0 +1,33 @@
+<div id="main-layout">
+  <mat-sidenav-container>
+
+    <!-- MENU LATERAL -->
+    <mat-sidenav #sidenav mode="side">
+
+      <mat-nav-list>
+        <a mat-list-item *ngFor="let itemMenu of itemsMenu" [routerLink]="itemMenu.utilRoute" routerLinkActive
+          #rla="routerLinkActive">
+          <mat-icon>{{ itemMenu.matIcon }}</mat-icon>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+      <div>
+        <mat-toolbar>
+          <button mat-icon-button color="accent" (click)="sidenav.toggle()"
+            aria-label="Example icon button with a menu icon">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <h1>Zonage</h1>
+        </mat-toolbar>
+      </div>
+
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
